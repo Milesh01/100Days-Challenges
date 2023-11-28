@@ -13,9 +13,6 @@
             position: relative;
         }
         .box{
-            /* display: flex;
-            justify-content: center;
-            align-items: center; */
             position: absolute;
             top: 50%;
             left: 50%;
@@ -23,11 +20,14 @@
             display: flex;
         }
         .one{ 
-            width: 15px;
+            width: 20px;
             height: 100px;
             background: #fff;
             box-shadow: 2px 0px 5px black;
             position: relative;
+            z-index: 1;
+            border-radius: 5px;
+
         }
         .one::before{
             content: "H  ";
@@ -36,11 +36,12 @@
             background: #fff;
             box-shadow: -2px 0px 2px #000000;
             position: absolute;
-            right: 7px;
-            top: 20px;
+            right: 10px;
+            top: 19px;
             color: #fff;
             transform: translate(-50%, -50%) rotate(50deg);
-            z-index: -1;
+            z-index: -11;
+            border-radius: 5px;
         }
         .zero{
             position: relative;
@@ -50,6 +51,8 @@
             background: #fff;
             box-shadow: 2px 0px 5px black;
             display: flex;
+            right: 2%;
+        
         }
         .zero-1{
             position: relative;
@@ -59,7 +62,7 @@
             background: #fff;
             box-shadow: 2px 0px 5px black;
             display: flex;
-            left: -15px;
+            right: 20px;
             z-index: -1;
         }
         .small-zero{
