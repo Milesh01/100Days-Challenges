@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2nd Day Challenge</title>
+    <style>
+        .container {
+            box-shadow: 0px 0px 5px black;
+            width: 400px;
+            height: 400px;
+            background: rgb(0, 255, 242);
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border-radius: 30px;
+        }
+
+        .center {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            cursor: pointer;
+        }
+
+        .line-1,
+        .line-2,
+        .line-3 {
+            background-color: aliceblue;
+            width: 70px;
+            height: 10px;
+            border-radius: 4px;
+            margin: 10px;
+            box-shadow: 0 0 3px black;
+            transition: 0.7s all ease-in-out;
+        }
+        .center.active .line-2 {
+            transform: scale(0);
+            opacity: 0;
+        }
+
+        .center.active .line-1 {
+            transform: rotate(45deg);
+            transition-delay: .25s;
+        }
+
+        .center.active .line-3 {
+            margin-top: -40px;
+            transform: rotate(315deg);
+            transition-delay: .25s;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+            <div class="center">
+                <div class="line-1"></div>
+                <div class="line-2"></div>
+                <div class="line-3"></div>
+            </div>
+    </div>
+    <script>
+        // Get the element with class 'menu-icon'
+        var menuIcon = document.querySelector('.center');
+
+        // Add a click event listener to the menu icon
+        menuIcon.onclick = function () {
+            menuIcon.classList.toggle('active')
+        }
+
+
+    </script>
+</body>
+
+</html>
