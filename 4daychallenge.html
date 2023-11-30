@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4day challenge</title>
+</head>
+<style>
+    .container {
+        height: 400px;
+        width: 400px;
+        box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+        background: #e56262;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .box {
+        position: relative;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        height: 300px;
+        width: 300px;
+        /* background-color: red; */
+    }
+
+    .box span:nth-child(1) {
+        width: 60px;
+        height: 60px;
+        z-index: 3;
+        border-radius: 50%;
+        position: absolute;
+        top: 38%;
+        left: 38%;
+        background-color: rgb(255, 255, 255);
+        animation: milesh 2s infinite alternate;
+    }
+
+    .box span:nth-child(2) {
+        width: 90px;
+        height: 90px;
+        z-index: 2;
+        border-radius: 50%;
+        position: absolute;
+        top: 33%;
+        left: 33%;
+        background-color: rgb(255, 255, 255);
+        animation: jump-2 2s infinite alternate;
+    }
+
+    .box span:nth-child(3) {
+        width: 120px;
+        height: 120px;
+        z-index: -1;
+        border-radius: 50%;
+        position: absolute;
+        top: 28%;
+        left: 28%;
+        background-color: rgb(250, 250, 250);
+        animation: jump-3 2s infinite alternate;
+    }
+
+    @keyframes milesh {
+
+        0%,
+        70% {
+            transform: scale(0);
+            box-shadow: 2px 2px 3px 2px rgba(0, 0, 0, 0.2);
+        }
+
+        100% {
+            transform: scale(1);
+            box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+        }
+    }
+
+    @keyframes jump-2 {
+
+        0%,
+        40% {
+            transform: scale(0);
+            box-shadow: 2px 2px 3px 2px rgba(0, 0, 0, 0.2);
+        }
+
+        100% {
+            transform: scale(1);
+            box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+        }
+    }
+
+    @keyframes jump-3 {
+
+        0%,
+        10% {
+            transform: scale(0);
+            box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.2);
+        }
+
+        100% {
+            transform: scale(1);
+            box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+        }
+    }
+</style>
+
+<body>
+    <div class="container">
+        <div class="box">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+    </div>
+</body>
+
+</html>
