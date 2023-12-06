@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>6Days Challenges</title>
+    <style>
+        .container{
+            height: 300px;
+            width: 300px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: linear-gradient(to top right, #EEBE6C 0%, #CA7C4E 100%);
+            border-radius: 8px;
+        }
+        .box{
+            background-color: rgb(255, 255, 255);
+            height: 85%;
+            width: 85%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: flex;
+            justify-content: space-between;
+            border-radius: 5px;
+            box-shadow: 1px 2px 10px 0px rgba(0, 0, 0, 0.3);
+            /* margin: 5px; */
+        }
+        .profile_section {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            /* background-color: red; */
+            width: 51.2%;
+            padding: 15px;
+            /* padding-left: 17px;
+            padding-right: 17px; */
+        }
+        .img_box{
+            display: flex;
+            flex-direction: column;
+            /* justify-content: center; */
+            align-items: center;
+            text-align: center;
+            width: 100%;
+        }
+        .img_box .title{
+            font-weight: bolder;
+            margin-top: .9rem !important;
+            color: #786450;
+        }
+        .img_box .subtitle{
+            margin-bottom: 10% !important;
+            color: #786450;
+        }
+        .img_box img{
+            height: 60px;
+            width: 60px;
+            border-radius: 50%;
+            /* border: 2px solid black; */
+            overflow: hidden;
+        }
+        .follow{
+            margin-top: 2rem !important;
+        }
+        .follow, .Message{
+            border: 1px solid black;
+            padding: 5px;
+            text-align: center;
+            border-radius: 20px;
+            font-weight: 600;
+            margin: 6px;
+            transition: 0.2s ease-in-out;
+            cursor: pointer;
+            color: #786450;
+        }
+        .follow:hover, .Message:hover{
+            background: #786450;
+    color: #fff;
+    border: 1px solid #786450;
+        }
+        .side_section{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .post,.Likes{
+            background-color: #F5E8DF;
+            width: 100px;
+            height: 95px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 2px;
+            line-height: 12px;
+            transition: .2s ease-in-out;
+        }
+        .follower{
+            background-color: #F5E8DF;
+            width: 100px;
+            height: 95px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            line-height: 10px;
+        }
+        .post span:nth-child(1){
+            font-size: 1.7rem;
+            font-weight: 700;
+        }
+        .Likes span:nth-child(1){
+            font-size: 1.7rem;
+            font-weight: 700;
+        }
+        .follower span:nth-child(1){
+            font-size: 1.7rem;
+            font-weight: 700;
+        }
+        .follower:hover, .Likes:hover, .post:hover{
+            background-color: #E1CFC2;
+            cursor: pointer;
+        }
+        .circle-1, .circle-2{
+		position: absolute;
+		border: 2px solid;
+		border-radius: 50%;
+		z-index: 1;
+		align-self: center;
+		justify-self: center;
+		transition: all 2s ease-in-out;
+	}
+    .circle-1 {
+		height: 4rem;
+		width: 4rem;
+        top: 4%;
+		border-color:  black black black transparent;
+	}
+    .circle-1:hover{
+        transform: rotate(760deg);
+        cursor: pointer;
+    }
+    .circle-2:hover{
+        transform: rotate(360deg);
+        cursor: pointer;
+    }
+    .circle-2 {
+		height: 4.8rem;
+		width: 4.8rem;
+		top: 1.5%;
+		left: 14%;
+        border-color: black transparent  black black;
+	}
+    
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="box">
+            <div class="profile_section">
+                <div class="img_box">
+                    <span class="circle-1"></span>
+                    <span class="circle-2"></span>
+                    <img src="figma.png" alt="Image">
+                    <span class="title">Milesh Kumar</span>
+                    <span class="subtitle">Designer</span>
+                </div>
+                <div class="follow">
+                    <span>Follow</span>
+                </div>
+                <div class="Message">
+                    <span>Message</span>
+                </div>
+            </div>
+            <div class="side_section">
+                <div class="post">
+                    <span>400</span><br/>
+                    <span>Post</span>
+                </div>
+                <div class="Likes">
+                    <span>100</span><br/>
+                    <span>Likes</span>
+                </div>
+                <div class="follower">
+                    <span>1400</span><br/>
+                    <span>Follower</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
