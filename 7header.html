@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Techtro - Smart Sticky Header</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            height: 2000px; /* For demo scrolling */
+        }
+
+        /* Initial header style (static at top) */
+        .header {
+            position: static;
+            width: 100%;
+            background: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.4s ease;
+            z-index: 100;
+        }
+
+        /* Header becomes fixed after scroll threshold */
+        .header.fixed {
+            position: fixed;
+            top: -80px; /* Hide above viewport */
+            transform: translateY(0);
+        }
+
+        /* Header slides down when scrolling up */
+        .header.slide-down {
+            top: 0;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(5px);
+        }
+
+        /* Header sticks to top after appearing */
+        .header.sticky {
+            top: 0;
+            transform: none;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: #333;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #555;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #0066ff;
+        }
+
+        .get-started-btn {
+            background: #0066ff;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .get-started-btn:hover {
+            background: #0052cc;
+            transform: translateY(-2px);
+        }
+
+        /* Content styles for demo */
+        .content {
+            padding: 20px;
+        }
+        
+        .hero {
+            height: 120vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 2rem;
+            text-align: center;
+            background: #f0f0f0;
+        }
+        
+        .scroll-prompt {
+            margin-top: 20px;
+            font-size: 1rem;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <a href="#" class="logo">Techtro</a>
+        <nav class="nav-links">
+            <a href="#">Home</a>
+            <a href="#">About</a>
+            <a href="#">Pages</a>
+            <a href="#">Portfolio</a>
+            <a href="#">Contact</a>
+            <a href="#" class="get-started-btn">Get Started</a>
+        </nav>
+    </header>
+
+    <div class="content">
+        <section class="hero">
+            <div>
+                <h1>Welcome to Techtro</h1>
+                <p class="scroll-prompt">Scroll down to see the header effect</p>
+            </div>
+        </section>
+        
+        <p>Continue scrolling...</p>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const header = document.querySelector('.header');
+            let lastScrollY = window.scrollY;
+            const threshold = 100; // When to start the effect
+            let isFixed = false;
+            let isSticky = false;
+
+            window.addEventListener('scroll', function() {
+                const currentScrollY = window.scrollY;
+                const scrollDirection = currentScrollY > lastScrollY ? 'down' : 'up';
+                
+                // When scrolled past threshold, make header fixed
+                if (currentScrollY > threshold && !isFixed) {
+                    header.classList.add('fixed');
+                    isFixed = true;
+                }
+                // When back at top, return to normal
+                else if (currentScrollY <= threshold && isFixed) {
+                    header.classList.remove('fixed', 'slide-down', 'sticky');
+                    isFixed = false;
+                    isSticky = false;
+                    return;
+                }
+                
+                // Only apply effects after threshold
+                if (isFixed) {
+                    if (scrollDirection === 'up' && !isSticky) {
+                        // Scrolling up - slide down header
+                        header.classList.remove('slide-down');
+                    } 
+                    else if (scrollDirection === 'down' && header.classList.contains('slide-down')) {
+                        // Scrolling down - hide header
+                        header.classList.add('slide-down');
+                    }
+                    
+                    // After header is fully visible, make it sticky
+                    if (currentScrollY < lastScrollY && currentScrollY > threshold + 80) {
+                        header.classList.add('sticky');
+                        isSticky = true;
+                    }
+                }
+                
+                lastScrollY = currentScrollY;
+            });
+        });
+    </script>
+</body>
+</html>
